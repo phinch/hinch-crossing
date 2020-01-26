@@ -2,6 +2,11 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
+const othergradient = {
+  background: '#2a5739',
+  background: 'linear-gradient(180deg, #2a5739 0%, #122d26 100%)',
+}
+
 const TopRight = ({ siteTitle }) => (
   <>
     <div
