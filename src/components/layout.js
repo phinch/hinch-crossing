@@ -33,7 +33,7 @@ const Layout = ({ children }) => {
           paddingTop: 0,
           background: '#fcebe0',
           background: 'linear-gradient(180deg, #fcebe0 0%, #ddab7b 100%)',
-          height: '100vh',        
+          minHeight: '100vh',     
         }}
       >
         <main>{children}</main>

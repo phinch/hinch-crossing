@@ -39,13 +39,13 @@ const TopRight = ({ siteTitle }) => (
         </h1>
         <h1 style={{ margin: 0, fontSize: 16, lineHeight: 1.8 }}>
           <Link
-            to="/"
+            to="/projects"
             style={{
               color: `#2a5739`,
               textDecoration: `none`,
             }}
           >
-            link 1
+            projects
           </Link>
         </h1>
         <h1 style={{ margin: 0, fontSize: 16, lineHeight: 1.8 }}>
