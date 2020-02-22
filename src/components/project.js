@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   },
   compactProject: {
     minWidth: 320,
-    width: '35%',
+    width: '35vw',
     height: '70vh',
     minHeight: 240,
     cursor: 'pointer',
@@ -35,20 +35,21 @@ const styles = StyleSheet.create({
 
   expandedProject: {
     background: 'linear-gradient(180deg, #fcebe0 0%, #ddab7b 100%)',
-    position: 'absolute',
-    height: '100%',
-    width: '100%',
+    height: '100vh',
+    width: '100vw',
     opacity: '0.8',
     zIndex: 2,
     display: 'flex',
+    overflowY: 'scroll',
+    overflowX: 'hidden',
   },
   expandedContent: {
     marginLeft: 48,
-    height: '70%',
     minHeight: 600,
     minWidth: 520,
-    width: '48%',
-    marginTop: 48,
+    width: '77%',
+    marginTop: '30vh', // slightly less than image height - needs more math
+    zIndex: 3,
   },
   titleWrapperExpanded: {
     height: '30%',
@@ -58,17 +59,27 @@ const styles = StyleSheet.create({
   mainImageExpanded: {},
   innerImageExpanded: {
     position: 'absolute',
-    top: '5%',
-    right: '3%',
-    maxWidth: '42%',
+    top: '5vh',
+    right: '3vw',
+    height: '40vh',
     zIndex: 2,
     opacity: 0.9,
     ':hover': {
       opacity: 1,
     },
   },
-  descriptionExpanded: {
-    zIndex: 3,
+  descriptionExpanded: {},
+  closeButton: {
+    position: 'absolute',
+    top: '5vh',
+    left: '3vw', // same as image
+    border: 'none',
+    background: 'none',
+    fontFamily: 'Assistant, sans-serif',
+    ':hover': {
+      cursor: 'pointer',
+      // animate
+    },
   },
 });
 
@@ -136,7 +147,7 @@ const Expanded = ({ onCompact, ...props }) => {
         />
       </div>
       <button onClick={onCompact} className={css(styles.closeButton)}>
-        closee
+        back
       </button>
       <img
         className={css(styles.innerImageExpanded)}
