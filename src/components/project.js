@@ -35,6 +35,7 @@ const styles = StyleSheet.create({
 
   expandedProject: {
     background: 'linear-gradient(180deg, #fcebe0 0%, #ddab7b 100%)',
+    position: 'absolute',
     height: '100vh',
     width: '100vw',
     opacity: '0.8',

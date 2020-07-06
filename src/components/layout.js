@@ -5,12 +5,25 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useStaticQuery, graphql } from 'gatsby';
+import { css, StyleSheet } from 'aphrodite';
 
-import TopRight from "./topRight"
-import "./layout.css"
+import MainMenu from './MainMenu';
+import * as colors from '../tokens/colors';
+import './layout.css';
+
+const styles = StyleSheet.create({
+  background: {
+    background: colors.sun,
+    margin: `0 auto`,
+    padding: `0px 0px 1.45rem`,
+    paddingTop: 0,
+    minHeight: '100vh',
+    color: colors.slate,
+  },
+});
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -21,29 +34,20 @@ const Layout = ({ children }) => {
         }
       }
     }
-  `)
+  `);
 
   return (
     <div>
-      <TopRight siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          padding: `0px 0px 1.45rem`,
-          paddingTop: 0,
-          background: '#fcebe0',
-          background: 'linear-gradient(180deg, #fcebe0 0%, #ddab7b 100%)',
-          minHeight: '100vh',     
-        }}
-      >
+      <MainMenu siteTitle={data.site.siteMetadata.title} />
+      <div className={css(styles.background)}>
         <main>{children}</main>
       </div>
     </div>
-  )
-}
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;
