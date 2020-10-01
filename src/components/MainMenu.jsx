@@ -55,8 +55,8 @@ const MainMenu = ({ siteTitle }) => {
           </Link>
         </h1>
         <h1 className={css(styles.subLink)}>
-          <Link to="/" type="primary">
-            link 2
+          <Link to="/experimental" type="primary">
+            experiments
           </Link>
         </h1>
         <h1 className={css(styles.subLink)}>
