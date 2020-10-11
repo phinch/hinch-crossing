@@ -14,26 +14,33 @@ export function generatePath(element) {
   const initialDirection = Math.floor(Math.random() * 360);
   const initialSlope = Math.tan(initialDirection);
 
-  let path = `m${Math.round(currentX)},${Math.round(currentY)} `;
+  let path = `M0,0 `;
 
   // Determine point of contact with edge
   const contactPoint = (() => {
-    const leftContact = [0, currentY + -currentX * initialSlope];
+    const leftContact = [0 - currentX, 0 + -currentX * initialSlope];
     const rightContact = [
-      windowWidth,
-      currentY + (windowWidth - currentX) * initialSlope,
+      windowWidth - currentX,
+      0 + (windowWidth - currentX) * initialSlope,
     ];
-    const topContact = [currentX + -currentY * initialSlope, 0];
+    const topContact = [0 + -currentY * initialSlope, 0 - currentY];
     const bottomContact = [
-      currentX + (windowHeight - currentY * initialSlope),
-      windowHeight,
+      0 + (windowHeight - currentY * initialSlope),
+      windowHeight - currentY,
     ];
 
     // This simply is not it
-    const rightIn = rightContact[1] <= windowHeight && rightContact[1] >= 0;
-    const leftIn = leftContact[1] <= windowHeight && leftContact[1] >= 0;
-    const topIn = topContact[0] <= windowWidth && topContact[0] >= 0;
-    const bottomIn = bottomContact[0] <= windowWidth && bottomContact[0] >= 0;
+    const rightIn =
+      rightContact[1] <= windowHeight - currentY &&
+      rightContact[1] >= 0 - currentY;
+    const leftIn =
+      leftContact[1] <= windowHeight - currentY &&
+      leftContact[1] >= 0 - currentY;
+    const topIn =
+      topContact[0] <= windowWidth - currentX && topContact[0] >= 0 - currentX;
+    const bottomIn =
+      bottomContact[0] <= windowWidth - currentX &&
+      bottomContact[0] >= 0 - currentX;
 
     if (initialDirection < 90) {
       if (rightIn) return rightContact;

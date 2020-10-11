@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     padding: `0px 0px 1.45rem`,
     paddingTop: 0,
     minHeight: '100vh',
-    color: colors.slate,
+    color: colors.farrowBallScotchBlue,
   },
 });
 

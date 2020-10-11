@@ -26,3 +26,7 @@ export const REF_truist_midnight_purple = '#2e1a47';
 export const REF_blend_blue = '#0f216b';
 export const REF_pentagram_red = '#e61428';
 export const REF_nari_teal = '#187881';
+
+// Colors from Farrow Ball
+export const farrowBallHagueBlue = '#213c48';
+export const farrowBallScotchBlue = '#3c4660';

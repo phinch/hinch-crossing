@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { css, StyleSheet } from 'aphrodite';
 
 import Layout from '../components/layout';
-import Image from '../components/image';
 import SEO from '../components/seo';
 import * as pathGeneration from '../util/pathGeneration';
 
@@ -27,11 +26,12 @@ const rotationClockwiseKeyframe = {
   },
 };
 
-let styles = StyleSheet.create({
+let defaultStyles = StyleSheet.create({
   animate: {
     position: 'absolute',
     top: '30%',
     left: '40%',
+    // offsetPath: 'path("M50,50 C50,200 120,0 220,100 S 400,150 350,0")',
     animationName: [motionKeyframe, rotationClockwiseKeyframe],
     animationDuration: '40000ms',
     animationIterationCount: 'infinite',
@@ -40,22 +40,29 @@ let styles = StyleSheet.create({
 });
 
 const IndexPage = () => {
+  const [styles, updateStyles] = React.useState(defaultStyles);
+
   useEffect(() => {
-    const path = pathGeneration.generatePath(document.getElementById('blah'));
-    console.log(path);
-    styles = StyleSheet.create({
+    const pathString = pathGeneration.generatePath(
+      document.getElementById('blah'),
+    );
+    console.log(pathString);
+    const stylesWithOffset = StyleSheet.create({
       animate: {
         position: 'absolute',
         top: '30%',
         left: '40%',
-        offsetPath: path,
+        offsetPath: `path("${pathString}")`,
         animationName: [motionKeyframe, rotationClockwiseKeyframe],
         animationDuration: '40000ms',
         animationIterationCount: 'infinite',
         animationTimingFunction: 'linear',
       },
     });
-  });
+    updateStyles(stylesWithOffset);
+  }, []);
+
+  console.log(styles);
 
   return (
     <Layout>

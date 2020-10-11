@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     textAlign: 'right',
   },
   time: {
-    color: colors.moss,
+    color: colors.farrowBallScotchBlue,
     margin: 0,
     fontSize: 16,
     lineHeight: 1.8,

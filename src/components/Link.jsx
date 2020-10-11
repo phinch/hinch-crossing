@@ -11,7 +11,7 @@ import * as colors from '../tokens/colors';
 
 const styles = StyleSheet.create({
   primary: {
-    color: colors.moss,
+    color: colors.farrowBallScotchBlue,
     textDecoration: `none`,
   },
   outline: {},
