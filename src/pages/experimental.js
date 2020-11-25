@@ -6,6 +6,14 @@ import SEO from '../components/seo';
 import * as colors from '../tokens/colors'
 import { css, StyleSheet } from 'aphrodite';
 
+const HEIGHT_PERCENTAGE = 80
+const SCREEN_WIDTH_CALC = `100vh * ${HEIGHT_PERCENTAGE/100} * (375/812)`
+const ICONS_PER_ROW = 4
+const SCREEN_VERTICAL_PADDING = 20
+const SCREEN_HORIZONTAL_PADDING = 10
+const ICON_HORIZONTAL_PADDING = 10
+const ICON_DIMENSION_CALC = `(${SCREEN_WIDTH_CALC} - (${SCREEN_HORIZONTAL_PADDING * 2 + ICON_HORIZONTAL_PADDING * 2 * ICONS_PER_ROW}px)) * (1/${ICONS_PER_ROW})`
+
 const styles = StyleSheet.create({
   centerWrapper: {
     display: 'flex',
@@ -14,30 +22,39 @@ const styles = StyleSheet.create({
     height: '100vh',
   },
   iphoneScreen: {
+    position: 'relative',
     maxWidth: 375,
-    width: `calc(100vh * .8 * (375/812))`,
+    width: `calc(${SCREEN_WIDTH_CALC})`,
     maxHeight: 812,
-    height: '80%',
+    height: `${HEIGHT_PERCENTAGE}%`,
     borderRadius: 20,
     background: colors.moss,
-    display: 'flex',
-    flexWrap: 'wrap',
-    alignContent: 'flex-start',
-    padding: 20,
-  },
-  appIcon: {
-    background: colors.sun,
-    maxHeight: 60,
-    maxWidth: 60,
-    width: `calc((100vh * .8 * (375/812) - 120px) * .25)`,
-    height: `calc((100vh * .8 * (375/812) - 120px) * .25)`,
-    borderRadius: 10,
-    marginLeft: 10,
-    marginRight: 10,
-    marginBottom: 25,
-    cursor: 'pointer',
   },
 })
+
+const generateAppIconStyles = iconIndex => {
+  const topMod = Math.floor(iconIndex / ICONS_PER_ROW)
+  const leftMod = iconIndex % ICONS_PER_ROW
+  const iconBottomSpacing = 25
+
+  const styles = StyleSheet.create({
+    appIcon: {
+      position: 'absolute',
+      background: colors.sun,
+      maxHeight: 60,
+      maxWidth: 60,
+      width: `calc(${ICON_DIMENSION_CALC})`,
+      height: `calc(${ICON_DIMENSION_CALC})`,
+      top: `calc(${ICON_DIMENSION_CALC} * ${topMod} + ${iconBottomSpacing}px * ${topMod} + ${SCREEN_VERTICAL_PADDING}px)`,
+      left: `calc((${ICON_DIMENSION_CALC} * ${leftMod}) + (${ICON_HORIZONTAL_PADDING}px * 2 * ${leftMod}) + ${SCREEN_HORIZONTAL_PADDING}px + ${ICON_HORIZONTAL_PADDING}px)`,
+      borderRadius: 10,
+      cursor: 'pointer',
+    },
+  })
+
+  console.log(styles)
+  return styles
+}
 
 const children = (() => {
   const children = []
@@ -98,7 +115,7 @@ const ExperimentalPage = () => {
         <div className={css(styles.iphoneScreen)} ref={screenRef}>
           {children.map(child => (
             <motion.div
-              className={css(styles.appIcon)}
+              className={css(generateAppIconStyles(child.childIndex).appIcon)}
               key={child.childIndex}
               whileTap={{
                 scale: [null, 1, 0.9, 1.1],
