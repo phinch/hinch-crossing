@@ -43,6 +43,7 @@ const IndexPage = () => {
   const [styles, updateStyles] = React.useState(defaultStyles);
 
   useEffect(() => {
+    if (!document) return;
     const pathString = pathGeneration.generatePath(
       document.getElementById('blah'),
     );
@@ -69,7 +70,7 @@ const IndexPage = () => {
       {/* TODO: learn SEO lol */}
       <SEO title="Home" />
       <span className={css(styles.animate)} id="blah">
-        hello
+        work in progress!
       </span>
     </Layout>
   );

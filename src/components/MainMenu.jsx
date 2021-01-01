@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
 const MainMenu = ({ siteTitle }) => {
   const [isOpen, toggleOpen] = React.useState(true);
 
-  console.log(isOpen);
   return isOpen ? (
     <div className={css(styles.MainMenu)}>
       <div className={css(styles.contentWrapper)}>
@@ -49,19 +48,14 @@ const MainMenu = ({ siteTitle }) => {
             {siteTitle}
           </Link>
         </h1>
-        <h1 className={css(styles.subLink)}>
+        {/* <h1 className={css(styles.subLink)}>
           <Link to="/projects" type="primary">
             projects
           </Link>
-        </h1>
+        </h1> */}
         <h1 className={css(styles.subLink)}>
           <Link to="/experimental" type="primary">
             experiments
-          </Link>
-        </h1>
-        <h1 className={css(styles.subLink)}>
-          <Link to="/" type="primary">
-            link 3
           </Link>
         </h1>
       </div>
