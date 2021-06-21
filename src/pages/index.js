@@ -3,7 +3,7 @@ import { css, StyleSheet } from 'aphrodite';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import * as pathGeneration from '../util/pathGeneration';
+import * as pathGeneration from '../utils/pathGeneration';
 
 const motionKeyframe = {
   '0%': {
