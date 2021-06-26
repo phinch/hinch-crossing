@@ -5,18 +5,18 @@ import { tintColor } from '../utils/color'
 import * as colors from '../tokens/colors'
 
 // copied from experimental page, figure it out
-const HEIGHT_PERCENTAGE = 80
-const SCREEN_WIDTH_CALC = `100vh * ${HEIGHT_PERCENTAGE/100} * (375/812)`
-const ICONS_PER_ROW = 4
-const SCREEN_VERTICAL_PADDING = 20
-const SCREEN_HORIZONTAL_PADDING = 10
-const ICON_HORIZONTAL_PADDING = 10
-const ICON_DIMENSION_CALC = `(${SCREEN_WIDTH_CALC} - (${SCREEN_HORIZONTAL_PADDING * 2 + ICON_HORIZONTAL_PADDING * 2 * ICONS_PER_ROW}px)) * (1/${ICONS_PER_ROW})`
+export const HEIGHT_PERCENTAGE = 80
+export const SCREEN_WIDTH_CALC = `100vh * ${HEIGHT_PERCENTAGE/100} * (375/812)`
+export const ICONS_PER_ROW = 4
+export const SCREEN_VERTICAL_PADDING = 20
+export const SCREEN_HORIZONTAL_PADDING = 10
+export const ICON_HORIZONTAL_PADDING = 10
+export const ICON_DIMENSION_CALC = `(${SCREEN_WIDTH_CALC} - (${SCREEN_HORIZONTAL_PADDING * 2 + ICON_HORIZONTAL_PADDING * 2 * ICONS_PER_ROW}px)) * (1/${ICONS_PER_ROW})`
 
 const generateAppIconStyles = (iconIndex, color) => {
-  const topMod = Math.floor(iconIndex / ICONS_PER_ROW)
-  const leftMod = iconIndex % ICONS_PER_ROW
-  const iconBottomSpacing = 25
+  // const topMod = Math.floor(iconIndex / ICONS_PER_ROW)
+  // const leftMod = iconIndex % ICONS_PER_ROW
+  // const iconBottomSpacing = 25
 
   const styles = StyleSheet.create({
     appIcon: {
@@ -61,14 +61,12 @@ const generateRandomShiverSequence = () => {
 
 export const AppSquare = (props) => {
   const { isMovingMode, index, dragConstraints, meta, onDrag, onDragStart, onDragEnd, onUpdateRef, ...htmlProps } = props
-  const { childIndex } = meta;
   const [color] = React.useState(tintColor(colors.sun, 0.2))
   const ref = React.useRef(null)
 
   React.useEffect(() => {
-    console.log(ref)
     if (ref.current) {
-      onUpdateRef(meta.iconIndex, ref)
+      onUpdateRef(meta, ref)
     }
   }, [ref])
 
