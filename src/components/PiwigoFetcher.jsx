@@ -2,7 +2,7 @@ import React from 'react'
 
 const PiwigoFetcher = () => {
   const fetchPiwigoInfo = async () => {
-    const response = await fetch('/server/testFunction');
+    const response = await fetch('/.netlify/functions/testFunction').then(response => response.json());
     console.log(response);
   }
 
