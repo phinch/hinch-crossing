@@ -8,6 +8,7 @@ exports.components = {
   "component---src-pages-experimental-js": () => import("/Users/philip/Documents/projects/hinch-crossing/src/pages/experimental.js" /* webpackChunkName: "component---src-pages-experimental-js" */),
   "component---src-pages-index-js": () => import("/Users/philip/Documents/projects/hinch-crossing/src/pages/index.js" /* webpackChunkName: "component---src-pages-index-js" */),
   "component---src-pages-photos-js": () => import("/Users/philip/Documents/projects/hinch-crossing/src/pages/photos.js" /* webpackChunkName: "component---src-pages-photos-js" */),
+  "component---src-pages-piwigo-js": () => import("/Users/philip/Documents/projects/hinch-crossing/src/pages/piwigo.js" /* webpackChunkName: "component---src-pages-piwigo-js" */),
   "component---src-pages-projects-js": () => import("/Users/philip/Documents/projects/hinch-crossing/src/pages/projects.js" /* webpackChunkName: "component---src-pages-projects-js" */)
 }
 

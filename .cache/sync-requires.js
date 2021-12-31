@@ -11,6 +11,7 @@ exports.components = {
   "component---src-pages-experimental-js": hot(preferDefault(require("/Users/philip/Documents/projects/hinch-crossing/src/pages/experimental.js"))),
   "component---src-pages-index-js": hot(preferDefault(require("/Users/philip/Documents/projects/hinch-crossing/src/pages/index.js"))),
   "component---src-pages-photos-js": hot(preferDefault(require("/Users/philip/Documents/projects/hinch-crossing/src/pages/photos.js"))),
+  "component---src-pages-piwigo-js": hot(preferDefault(require("/Users/philip/Documents/projects/hinch-crossing/src/pages/piwigo.js"))),
   "component---src-pages-projects-js": hot(preferDefault(require("/Users/philip/Documents/projects/hinch-crossing/src/pages/projects.js")))
 }
 

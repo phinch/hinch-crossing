@@ -52,6 +52,9 @@ export const AppScreen = () => {
   const [iconBeingDragged, setIconBeingDragged] = React.useState(null);
 
   const onIconPress = () => {
+    if (movingMode) {
+      return;
+    }
     const timeoutRef = setTimeout(() => {
       setMovingMode(true);
       setTapTimeoutRef(null);

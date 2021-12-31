@@ -55,7 +55,12 @@ const MainMenu = ({ siteTitle }) => {
         </h1> */}
         <h1 className={css(styles.subLink)}>
           <Link to="/experimental" type="primary">
-            experiments
+            iphone drag and drop
+          </Link>
+        </h1>
+        <h1 className={css(styles.subLink)}>
+          <Link to="/piwigo" type="primary">
+            picture labeller
           </Link>
         </h1>
       </div>
